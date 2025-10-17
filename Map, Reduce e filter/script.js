@@ -79,4 +79,5 @@ const faturaTotal = produtos.map(produto => {
     return {...produto, quantidade: produto.quantidade + 10};
 }).filter(produto => produto.temDesconto).reduce((acumulador,produto) => acumulador + (produto.preco * produto.quantidade)); 
 
-console.log(faturaTotal);
+console.log(faturaTotal.toLocaleString('pt-br', {
+        style: 'currency', currency: 'BRL'}));
