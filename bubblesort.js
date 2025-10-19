@@ -9,21 +9,20 @@ function bubbleSort(arr) {
   return arr;
 }
 // Linha por linha:
-// for (let i = 0; i < arr.length; i++)
+function bubbleSort1(arr){
+    for (let i = 0; i < arr.length; i++)
 // → Controla quantas vezes o array será percorrido.
 // (Cada passada posiciona o próximo maior número no final).
-
-// for (let j = 0; j < arr.length - i - 1; j++)
+    for (let j = 0; j < arr.length - i - 1; j++)
 // → Faz as comparações entre os pares.
 // → O - i - 1 impede comparações com os elementos que já estão no lugar certo.
-
-// if (arr[j] > arr[j + 1])
+    if (arr[j] > arr[j + 1])
 // → Verifica se o par está fora de ordem (maior vem antes do menor).
-
-// [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+    [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
 // → Troca os valores de posição (técnica moderna usando destructuring assignment).
+return arr
+}
 
-// return arr
 // → Retorna o array ordenado.
 
 // 🧩 1. Ordenação crescente simples
@@ -32,25 +31,62 @@ function bubbleSort(arr) {
 
 const numeros = [9, 3, 5, 1, 8, 2];
 
+function bubbleSort(arr) {
+  for (let i = 0; i < arr.length; i++) {              // Passagens
+    for (let j = 0; j < arr.length - i - 1; j++) {    // Comparações
+      if (arr[j] > arr[j + 1]) {                      // Se fora de ordem
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];  // Troca usando destructuring
+      }
+    }
+  }
+  return arr;
+}
+
+console.log(bubbleSort(numeros));
 
 // 📌 Objetivo: entender o funcionamento básico do algoritmo.
 // 💡 Dica: copie a estrutura básica do bubble sort e aplique.
 
 // 🧩 2. Ordenação decrescente
-
-// Utilizando o mesmo algoritmo Bubble Sort, agora ordene o array abaixo em ordem decrescente.
-
 const numeros1 = [4, 10, 1, 6, 2, 9];
+
+function bubbleSort(arr) {
+  for (let i = 0; i < arr.length; i++) {              // Passagens
+    for (let j = 0; j < arr.length - i - 1; j++) {    // Comparações
+      if (arr[j] > arr[j + 1]) {                      // Se fora de ordem
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];  // Troca usando destructuring
+      }
+    }
+  }
+  return arr;
+}
+
+console.log(bubbleSort(numeros1));
+const reverse = numeros1.reverse();
+console.log(reverse);
 
 
 // 📌 Objetivo: inverter a condição de comparação (> → <).
 // 💡 Dica: só muda o sinal dentro do if.
 
-// 🧩 3. Ordenar nomes em ordem alfabética
-
-// Usando Bubble Sort, ordene os nomes abaixo em ordem alfabética (A → Z).
+// 🧩 3. Ordenar nomes em ordem alfabética (A → Z)
 
 const nomes = ["Carlos", "Ana", "Beatriz", "João", "Eduardo"];
+
+function bubbleSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) { // compara strings normalmente
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]; // troca
+      }
+    }
+  }
+  return arr;
+}
+
+console.log(bubbleSort(nomes));
+
+
 
 
 // 📌 Objetivo: aplicar comparação entre strings (> e < funcionam para comparar textos).
@@ -66,6 +102,18 @@ const produtos = [
   { nome: "Mouse", preco: 50 },
   { nome: "Cadeira", preco: 350 }
 ];
+
+function bubbleSort(arr) {
+  for (let i = 0; i < arr.length; i++) {              // Passagens
+    for (let j = 0; j < arr.length - i - 1; j++) {    // Comparações
+      if (arr[j].preco > arr[j + 1].preco) {                      // Se fora de ordem
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];  // Troca usando destructuring
+      }
+    }
+  }
+  return arr;
+}
+
 
 
 // 📌 Objetivo: praticar comparação de propriedades dentro de objetos.
